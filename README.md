@@ -9,6 +9,8 @@
 - **Institución:** ISIL - Educación Superior
 - **Caso aplicado:** NovaMarket (continuidad progresiva del esquema de clientes, productos y pedidos en SQL Server)
 - **Docente:** Wilder Julio Espinoza Bravo
+- **Enlace al Repositorio:** [GitHUB GRUPO 10]([https://github.com/GustavoRonaldinho67/Programacion-Avanzada-DB-PA2](https://github.com/GustavoRonaldinho67/Programacion-Avanzada-DB-PA4))
+
 
 ---
 

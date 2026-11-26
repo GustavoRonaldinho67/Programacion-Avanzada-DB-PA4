@@ -1,12 +1,15 @@
+-- ========================================================================================
+-- ARCHIVO: sql/02_actividad2_funciones.sql
+-- AUTOR: Gustavo Muñoz Izquierdo | Revisión QA: Mauricio Rojas Arias
+-- OBJETIVO: Actividad 2 - Función escalar y función de tipo tabla en NovaMarket.
+-- ========================================================================================
+
 USE NovaMarket;
 GO
 
-
--- ACTIVIDAD 2 = FUNCION ESCALAR
--- Devuelve el precio actual de un producto
-
-
-CREATE FUNCTION dbo.fn_PrecioActualProducto
+-- ACTIVIDAD 2 - FUNCION ESCALAR
+-- Devuelve el precio actual de un producto (PrecioOferta si existe, sino PrecioLista)
+CREATE OR ALTER FUNCTION dbo.fn_PrecioActualProducto
 (
     @ProductoID INT
 )
@@ -35,16 +38,11 @@ SELECT
     PrecioOferta,
     dbo.fn_PrecioActualProducto(ProductoID) AS PrecioActual
 FROM Producto;
+GO
 
--- La funcion escalar devuelve un solo valor. En este caso permite obtener el precio actual de un producto segun su ProductoID
--- La funcion escalar es conveniente cuando se necesita obtener o calcular un valor individual
-
-
--- ACTIVIDAD 2 = FUNCION DE TIPO TABLA
--- Devuelve productos por categoria
-
-
-CREATE FUNCTION dbo.fn_ProductosPorCategoria
+-- ACTIVIDAD 2 - FUNCION DE TIPO TABLA (INLINE)
+-- Devuelve productos filtrados por categoria
+CREATE OR ALTER FUNCTION dbo.fn_ProductosPorCategoria
 (
     @CategoriaID INT
 )
@@ -65,6 +63,4 @@ GO
 
 SELECT *
 FROM dbo.fn_ProductosPorCategoria(1);
-
--- La funcion de tipo tabla devuelve un conjunto de registros. En este caso permite consultar todos los productos que pertenecen a una categoria
--- La funcion de tabla es conveniente cuando se necesita reutilizar una consulta que devuelve varias filas y columnas.
+GO
